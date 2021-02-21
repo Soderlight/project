@@ -1,0 +1,32 @@
+version: "2.1"
+
+networks:
+  test:
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - test
+
+  db:
+      container_name: sample_db
+      image: postgres:9.5
+      volumes:
+          - sample_db:/var/lib/postgresql/data
+      environment:
+          - POSTGRES_PASSWORD=sample
+          - POSTGRES_USER=sample
+          - POSTGRES_DB=sample
+          - PGDATA=/var/lib/postgresql/data/pgdata
+      ports:
+            - 5432:5432
+      networks:
+        - test
+
+volumes:
+    sample_db: {}

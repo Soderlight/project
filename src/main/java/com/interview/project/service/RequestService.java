@@ -6,7 +6,6 @@ import com.interview.project.exception.ApiRequestException;
 import com.interview.project.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 
 import java.io.IOException;
 import java.net.URL;
